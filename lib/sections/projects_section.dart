@@ -47,6 +47,13 @@ class ProjectsSection extends StatelessWidget {
       'tech': 'Flutter • Flame Engine • GitHub Project',
       'url': 'https://github.com/HossamEzzat/mafioso',
     },
+    {
+      'title': 'Folowsy Feen',
+      'desc':
+      ' تطبيق فلوسي فين هو مدير النفقات الحديث والبديهي الذي صمم خصيصاً لمساعدتك على التحكم الكامل في أموالك.',
+      'tech': 'Flutter • Hive • SharedPreferences',
+      'url': 'https://play.google.com/store/apps/details?id=com.hossamezzataboroka.folowsyfeen&pcampaignid=web_share',
+    }
   ];
 
   @override
