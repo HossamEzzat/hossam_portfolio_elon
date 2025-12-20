@@ -8,52 +8,65 @@ class ProjectsSection extends StatelessWidget {
     {
       'title': 'Fe Alsika',
       'desc':
-      'A smart transportation app available on Google Play for tracking and booking metro and bus routes efficiently.',
+          'A smart transportation app available on Google Play for tracking and booking metro and bus routes efficiently.',
       'tech': 'Flutter • Firebase • Google Maps API',
-      'url': 'https://play.google.com/store/apps/details?id=com.xseifoo.metro_bus',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.xseifoo.metro_bus',
     },
     {
       'title': 'Z Store',
       'desc':
-      'E-commerce mobile application for products browsing and purchasing with secure checkout process.',
+          'E-commerce mobile application for products browsing and purchasing with secure checkout process.',
       'tech': 'Flutter • REST API • Provider State Management',
-      'url': 'https://play.google.com/store/apps/details?id=org.zagsystems.z_store',
+      'url':
+          'https://play.google.com/store/apps/details?id=org.zagsystems.z_store',
     },
     {
       'title': 'Bedu',
       'desc':
-      'Educational platform app providing student learning resources and quizzes through a modern UI.',
+          'Educational platform app providing student learning resources and quizzes through a modern UI.',
       'tech': 'Flutter • Firebase Auth • Firestore',
       'url': 'https://play.google.com/store/apps/details?id=com.xseifoo.bedu',
     },
     {
       'title': 'Fsolutions',
       'desc':
-      'HR management app integrated with Odoo system for employee attendance and internal communication.',
+          'HR management app integrated with Odoo system for employee attendance and internal communication.',
       'tech': 'Flutter • Odoo API • Clean Architecture',
-      'url': 'https://play.google.com/store/apps/details?id=app.fsolutions.odoo_hr',
+      'url':
+          'https://play.google.com/store/apps/details?id=app.fsolutions.odoo_hr',
     },
     {
       'title': 'Al Fahima Platform',
       'desc':
-      'An Arabic educational platform designed for children to learn interactively using modern visuals.',
+          'An Arabic educational platform designed for children to learn interactively using modern visuals.',
       'tech': 'Flutter • Firebase • SharedPreferences',
-      'url': 'https://play.google.com/store/apps/details?id=com.linkysoft.alfahima',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.linkysoft.alfahima',
     },
     {
       'title': 'Mafioso (Game App)',
       'desc':
-      'A fun interactive Mafia-style game built with Flutter and custom animations, available on GitHub.',
+          'A fun interactive Mafia-style game built with Flutter and custom animations, available on GitHub.',
       'tech': 'Flutter • Flame Engine • GitHub Project',
       'url': 'https://github.com/HossamEzzat/mafioso',
     },
     {
       'title': 'Folowsy Feen',
       'desc':
-      ' تطبيق فلوسي فين هو مدير النفقات الحديث والبديهي الذي صمم خصيصاً لمساعدتك على التحكم الكامل في أموالك.',
+          ' تطبيق فلوسي فين هو مدير النفقات الحديث والبديهي الذي صمم خصيصاً لمساعدتك على التحكم الكامل في أموالك.',
       'tech': 'Flutter • Hive • SharedPreferences',
-      'url': 'https://play.google.com/store/apps/details?id=com.hossamezzataboroka.folowsyfeen&pcampaignid=web_share',
-    }
+      'url':
+          'https://play.google.com/store/apps/details?id=com.hossamezzataboroka.ahsably',
+    },
+    {
+      'title': 'احسبلي',
+      'desc':
+          'وداعاً لدفاتر الحسابات الورقية.. أهلاً بالإدارة الذكية! : هل تمتلك سيارة (أو أسطول سيارات) وتجد صعوبة في تتبع حسابات الورديات ومصاريف الصيانة؟ تطبيق احسبلي صُمم خصيصاً لمساعدتك على إدارة أسطولك بكل سهولة ودقة.',
+      'tech': 'Flutter • Hive • SharedPreferences',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.hossamezzataboroka.ahsably',
+    },
   ];
 
   @override
@@ -134,7 +147,9 @@ class _ProjectCardState extends State<_ProjectCard> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: _hover ? Colors.cyanAccent : Colors.cyanAccent.withOpacity(0.3),
+            color: _hover
+                ? Colors.cyanAccent
+                : Colors.cyanAccent.withOpacity(0.3),
             width: 1.5,
           ),
           color: Colors.black.withOpacity(0.4),
@@ -189,8 +204,10 @@ class _ProjectCardState extends State<_ProjectCard> {
                 },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(color: Colors.cyanAccent, width: 1.3),
