@@ -93,11 +93,11 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
                     pause: const Duration(milliseconds: 500),
                     animatedTexts: [
                       FadeAnimatedText(
-                        'Flutter Developer 💙',
+                        'Software Engineer | Full Stack Mobile 🚀',
                         textStyle: _subTextStyle(size),
                       ),
                       FadeAnimatedText(
-                        'Mobile App Developer ⚡',
+                        'Flutter Developer 💙',
                         textStyle: _subTextStyle(size),
                       ),
                       FadeAnimatedText(

@@ -3,8 +3,9 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'sections/hero_cyberspace.dart';
 import 'sections/about_section.dart';
 import 'sections/skills_section.dart';
-import 'sections/contact_section.dart';
+import 'sections/experience_section.dart';
 import 'sections/projects_section.dart';
+import 'sections/contact_section.dart';
 void main() {
   runApp(const ElonPortfolio());
 }
@@ -39,6 +40,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
     HeroCyberSpace(),
     AboutSection(),
     SkillsSection(),
+    ExperienceSection(),
     ProjectsSection(),
     ContactSection(),
   ];
@@ -64,8 +66,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
         actions: [
           _navButton("About", 1),
           _navButton("Skills", 2),
-          _navButton("Projects", 3),
-          _navButton("Contact", 4),
+          _navButton("Experience", 3),
+          _navButton("Projects", 4),
+          _navButton("Contact", 5),
           const SizedBox(width: 20),
         ],
       ),
