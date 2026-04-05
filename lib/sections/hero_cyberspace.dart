@@ -49,16 +49,25 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
       animation: Listenable.merge([_controller, _floatController]),
       builder: (context, _) {
         final floatOffset = math.sin(_floatController.value * 2 * math.pi) * 10;
-        return CustomPaint(
-          painter: _CyberSpacePainter(
-            stars: _stars,
-            progress: _controller.value,
+        return Container(
+          decoration: const BoxDecoration(
+            gradient: RadialGradient(
+              center: Alignment.center,
+              radius: 1.0,
+              colors: [Color(0xFF1E293B), Color(0xFF070B14)],
+              stops: [0.0, 1.0],
+            ),
           ),
-          child: Container(
-            width: size.width,
-            height: size.height,
-            alignment: Alignment.center,
-            child: Transform.translate(
+          child: CustomPaint(
+            painter: _CyberSpacePainter(
+              stars: _stars,
+              progress: _controller.value,
+            ),
+            child: Container(
+              width: size.width,
+              height: size.height,
+              alignment: Alignment.center,
+              child: Transform.translate(
               offset: Offset(0, floatOffset),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -67,16 +76,20 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
                   AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        'HOSSAM EZZAT',
+                        'HOSSAM EZZAT KHALIFA',
                         textStyle: TextStyle(
                           fontSize: size.width * 0.06,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.cyanAccent,
-                          letterSpacing: 3,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white, // White core for neon effect
+                          letterSpacing: 4,
                           shadows: [
                             Shadow(
-                              color: Colors.cyanAccent.withOpacity(0.9),
-                              blurRadius: 20,
+                              color: Colors.cyanAccent.withOpacity(0.8),
+                              blurRadius: 30,
+                            ),
+                            Shadow(
+                              color: Colors.cyanAccent.withOpacity(0.4),
+                              blurRadius: 60,
                             ),
                           ],
                         ),
@@ -132,6 +145,7 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
                 ],
               ),
             ),
+          ),
           ),
         );
       },
@@ -209,24 +223,28 @@ class _HoverButtonState extends State<_HoverButton> {
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            border: Border.all(color: Colors.cyanAccent, width: 1.5),
+            color: _hovering ? Colors.cyanAccent.withOpacity(0.15) : Colors.black.withOpacity(0.3),
+            border: Border.all(
+              color: _hovering ? Colors.cyanAccent : Colors.cyanAccent.withOpacity(0.5), 
+              width: _hovering ? 2.0 : 1.5
+            ),
             boxShadow: [
               BoxShadow(
-                color: Colors.cyanAccent.withOpacity(_hovering ? 0.8 : 0.3),
-                blurRadius: _hovering ? 30 : 10,
-                spreadRadius: _hovering ? 2 : 0,
+                color: Colors.cyanAccent.withOpacity(_hovering ? 0.4 : 0.0),
+                blurRadius: _hovering ? 30 : 0,
+                spreadRadius: _hovering ? 4 : 0,
               ),
             ],
           ),
           child: Text(
             'CONTACT ME',
             style: TextStyle(
-              color: Colors.cyanAccent,
-              letterSpacing: 2,
-              fontWeight: FontWeight.w500,
+              color: _hovering ? Colors.white : Colors.cyanAccent,
+              letterSpacing: 3,
+              fontWeight: FontWeight.bold,
               fontSize: _hovering ? 18 : 16,
             ),
           ),

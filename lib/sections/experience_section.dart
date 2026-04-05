@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
@@ -6,61 +7,87 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black.withOpacity(0.85),
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 40),
+      color: const Color(0xFF070B14),
+      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1000),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '💼 Experience & Education',
-                style: TextStyle(
-                  color: Colors.cyanAccent,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
+              ShaderMask(
+                shaderCallback: (bounds) => const LinearGradient(
+                  colors: [Colors.cyanAccent, Color(0xFF6366f1)],
+                ).createShader(bounds),
+                child: const Text(
+                  'EXPERIENCE & EDUCATION',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 4,
+                  ),
                 ),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 20),
+              Container(
+                height: 4,
+                width: 80,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Colors.cyanAccent, Color(0xFF6366f1)],
+                  ),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 80),
               
-              Row(
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 1,
-                    child: _buildColumn(
+                    child: _TimelineColumn(
                       title: 'Work Experience',
-                      iconData: Icons.work_outline,
+                      icon: Icons.work_history_rounded,
                       items: [
-                        _buildTimelineItem(
+                        _TimelineItemData(
+                          title: 'Mobile App Developer',
+                          subtitle: 'SAF INVESTMENT GROUP',
+                          date: 'Dec 2023 - Present',
+                          description: 'Developing high-end fintech solutions. Expertise in Clean Architecture, state management (Bloc/Provider), and custom UI designs for complex business needs.',
+                        ),
+                        _TimelineItemData(
                           title: 'Flutter Developer',
-                          subtitle: 'SAF INVESTMENT GROUP / ZagSystem / Huma-valve / Elevate tech',
-                          date: 'Multiple Companies (Part-time / Freelance)',
-                          description: 'Designed and built high-performance, scalable mobile applications. Managed state using Provider, Bloc, and Cubit. Integrated RESTful APIs and Firebase services. Collaborated with design teams to ensure UI/UX consistency.',
+                          subtitle: 'ZagSystem / Huma-valve / Elevate',
+                          date: 'Nov 2021 - Nov 2023',
+                          description: 'Freelance & Part-time development for multiple platforms. Focused on performance optimization, RESTful API integration, and Firebase backend services.',
+                        ),
+                        _TimelineItemData(
+                          title: 'Programming Instructor',
+                          subtitle: 'EraaSoft / Kian / MEC / Bright Brain',
+                          date: '2022 - Present',
+                          description: 'Mentoring 500+ students in Flutter and Dart development. Guided teams to winning national programming competitions.',
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(width: 40),
+                  SizedBox(width: 40),
                   Expanded(
-                    flex: 1,
-                    child: _buildColumn(
+                    child: _TimelineColumn(
                       title: 'Education & Awards',
-                      iconData: Icons.school_outlined,
+                      icon: Icons.auto_stories_rounded,
                       items: [
-                        _buildTimelineItem(
-                          title: 'Bachelor of Computer and Information Science',
+                        _TimelineItemData(
+                          title: 'Bachelor of Computer Science',
                           subtitle: 'Zagazig University, Egypt',
-                          date: 'Graduation: 2023 | Grade: Very Good',
-                          description: 'CS department focused on practical software engineering.',
+                          date: 'Class of 2023',
+                          description: 'CS Department | Grade: Very Good. Specialized in software engineering, algorithms, and modular design patterns.',
                         ),
-                        _buildTimelineItem(
+                        _TimelineItemData(
                           title: 'Global & Regional Awards',
-                          subtitle: 'Various Competitions',
+                          subtitle: 'First & Second Places',
                           date: '2022 - 2023',
-                          description: '• Golden Medal – Climate Change Awareness App (1st Place Climathon EUI 2022)\n• 2nd Place – DevFest 2022 MENA Region\n• 2nd Place – Dell Competition (2023) Africa/Middle East\n• Huawei Academy Ambassador (2022)',
+                          description: '• Golden Medal – Climathon EUI 2022\n• 1st Place – Google Solution Challenge AOU 2023\n• 2nd Place – Dell Competition (Africa/MENA) 2023\n• 2nd Place – DevFest 2022',
                         ),
                       ],
                     ),
@@ -73,19 +100,28 @@ class ExperienceSection extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildColumn({
-    required String title,
-    required IconData iconData,
-    required List<Widget> items,
-  }) {
+class _TimelineColumn extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final List<_TimelineItemData> items;
+
+  const _TimelineColumn({
+    required this.title,
+    required this.icon,
+    required this.items,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
-            Icon(iconData, color: Colors.cyanAccent, size: 28),
-            const SizedBox(width: 12),
+            Icon(icon, color: Colors.cyanAccent, size: 28),
+            const SizedBox(width: 15),
             Text(
               title,
               style: const TextStyle(
@@ -96,63 +132,134 @@ class ExperienceSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 30),
-        ...items,
+        const SizedBox(height: 40),
+        ...items.map((item) => _TimelineItem(data: item)).toList(),
       ],
     );
   }
+}
 
-  Widget _buildTimelineItem({
-    required String title,
-    required String subtitle,
-    required String date,
-    required String description,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
-      child: Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: const Color(0xFF1E293B).withOpacity(0.5),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.cyanAccent.withOpacity(0.2)),
-        ),
-        child: Column(
+class _TimelineItemData {
+  final String title;
+  final String subtitle;
+  final String date;
+  final String description;
+
+  const _TimelineItemData({
+    required this.title,
+    required this.subtitle,
+    required this.date,
+    required this.description,
+  });
+}
+
+class _TimelineItem extends StatefulWidget {
+  final _TimelineItemData data;
+  const _TimelineItem({required this.data});
+
+  @override
+  State<_TimelineItem> createState() => _TimelineItemState();
+}
+
+class _TimelineItemState extends State<_TimelineItem> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: IntrinsicHeight(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            Column(
+              children: [
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  width: 16,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _isHovered ? Colors.cyanAccent : Colors.white24,
+                    boxShadow: [
+                      if (_isHovered)
+                        BoxShadow(
+                          color: Colors.cyanAccent.withOpacity(0.6),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 2,
+                    color: Colors.white10,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            Text(
-              subtitle,
-              style: TextStyle(
-                color: Colors.cyanAccent.withOpacity(0.8),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              date,
-              style: const TextStyle(
-                color: Colors.white54,
-                fontSize: 14,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              description,
-              style: const TextStyle(
-                color: Color(0xFF94A3B8),
-                fontSize: 15,
-                height: 1.5,
+            const SizedBox(width: 25),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    color: _isHovered 
+                      ? Colors.cyanAccent.withOpacity(0.05) 
+                      : Colors.white.withOpacity(0.02),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: _isHovered 
+                        ? Colors.cyanAccent.withOpacity(0.5) 
+                        : Colors.white.withOpacity(0.05),
+                      width: 1.5,
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.data.title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.data.subtitle,
+                        style: TextStyle(
+                          color: Colors.cyanAccent.withOpacity(0.8),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        widget.data.date,
+                        style: const TextStyle(
+                          color: Colors.white38,
+                          fontSize: 14,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        widget.data.description,
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 15,
+                          height: 1.6,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
