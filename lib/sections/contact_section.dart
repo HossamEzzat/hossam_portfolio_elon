@@ -72,7 +72,7 @@ class ContactSection extends StatelessWidget {
                       label: 'VIEW MY RESUME',
                       onTap: () async {
                         final uri = Uri.parse(
-                            'https://drive.google.com/file/d/1xRLhzedq_l91IOB-5QJi1SjstCNrpDwl/view?usp=sharing');
+                            'https://drive.google.com/file/d/1cjFgWjVDLxSunHgV8FPS1Hn3tWhuJfJN/view?usp=sharing');
                         if (await canLaunchUrl(uri)) {
                           await launchUrl(uri, mode: LaunchMode.externalApplication);
                         }
