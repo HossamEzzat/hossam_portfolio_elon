@@ -9,15 +9,37 @@ class SkillsSection extends StatelessWidget {
     final skillCategories = {
       'Mobile Development': {
         'icon': Icons.phone_android_rounded,
-        'skills': ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Hive', 'SharedPreferences', 'SQLite']
+        'skills': [
+          'Flutter',
+          'Dart',
+          'Firebase',
+          'REST APIs',
+          'Hive',
+          'SharedPreferences',
+          'SQLite',
+        ],
       },
       'Backend Development': {
         'icon': Icons.lan_rounded,
-        'skills': ['ASP.NET Core', 'Web APIs', 'Entity Framework', 'SQL Server']
+        'skills': [
+          'ASP.NET Core',
+          'Web APIs',
+          'Entity Framework',
+          'SQL Server',
+        ],
       },
       'Architecture & Patterns': {
         'icon': Icons.architecture_rounded,
-        'skills': ['Clean Architecture', 'Clean Code', 'SOLID', 'MVC', 'MVVM', 'Bloc', 'Cubit', 'GetX']
+        'skills': [
+          'Clean Architecture',
+          'Clean Code',
+          'SOLID',
+          'MVC',
+          'MVVM',
+          'Bloc',
+          'Cubit',
+          'GetX',
+        ],
       },
     };
 
@@ -86,14 +108,16 @@ class SkillsSection extends StatelessWidget {
                       Wrap(
                         spacing: 15,
                         runSpacing: 15,
-                        children: (category.value['skills'] as List<String>).map((skill) {
-                          return _SkillBadge(skill: skill);
-                        }).toList(),
+                        children: (category.value['skills'] as List<String>)
+                            .map((skill) {
+                              return _SkillBadge(skill: skill);
+                            })
+                            .toList(),
                       ),
                     ],
                   ),
                 );
-              }).toList(),
+              }),
             ],
           ),
         ),
@@ -138,16 +162,19 @@ class _SkillBadgeState extends State<_SkillBadge> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 12,
+                ),
                 decoration: BoxDecoration(
-                  color: _isHovered 
-                    ? Colors.cyanAccent.withOpacity(0.1) 
-                    : Colors.white.withOpacity(0.05),
+                  color: _isHovered
+                      ? Colors.cyanAccent.withOpacity(0.1)
+                      : Colors.white.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
-                    color: _isHovered 
-                      ? Colors.cyanAccent 
-                      : Colors.white.withOpacity(0.1),
+                    color: _isHovered
+                        ? Colors.cyanAccent
+                        : Colors.white.withOpacity(0.1),
                     width: 1,
                   ),
                 ),

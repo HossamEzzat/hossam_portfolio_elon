@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:ui';
 
 class ProjectDetailsScreen extends StatelessWidget {
   final String title;
@@ -40,7 +39,10 @@ class ProjectDetailsScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: 16),
           child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+            icon: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.white,
+            ),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -56,16 +58,13 @@ class ProjectDetailsScreen extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xFF1E293B),
-                    Color(0xFF070B14),
-                  ],
+                  colors: [Color(0xFF1E293B), Color(0xFF070B14)],
                 ),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                   const Positioned.fill(
+                  const Positioned.fill(
                     child: Opacity(
                       opacity: 0.1,
                       child: GridPaper(
@@ -90,17 +89,13 @@ class ProjectDetailsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Icon(
-                        iconData,
-                        size: 150,
-                        color: Colors.white,
-                      ),
+                      child: Icon(iconData, size: 150, color: Colors.white),
                     ),
                   ),
                 ],
               ),
             ),
-            
+
             // Content
             Transform.translate(
               offset: const Offset(0, -60),
@@ -139,7 +134,9 @@ class ProjectDetailsScreen extends StatelessWidget {
                           Wrap(
                             spacing: 20,
                             runSpacing: 20,
-                            children: features.map((f) => _FeatureCard(feature: f)).toList(),
+                            children: features
+                                .map((f) => _FeatureCard(feature: f))
+                                .toList(),
                           ),
                           const SizedBox(height: 60),
                         ],
@@ -150,7 +147,10 @@ class ProjectDetailsScreen extends StatelessWidget {
                         Wrap(
                           spacing: 12,
                           runSpacing: 12,
-                          children: tech.split('•').map((t) => _TechBadge(tech: t.trim())).toList(),
+                          children: tech
+                              .split('•')
+                              .map((t) => _TechBadge(tech: t.trim()))
+                              .toList(),
                         ),
                         const SizedBox(height: 80),
 
@@ -194,11 +194,7 @@ class _SectionTitle extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Container(
-          height: 3,
-          width: 40,
-          color: Colors.cyanAccent,
-        ),
+        Container(height: 3, width: 40, color: Colors.cyanAccent),
       ],
     );
   }
@@ -216,19 +212,24 @@ class _FeatureCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.03),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.05),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.white.withOpacity(0.05), width: 1),
       ),
       child: Row(
         children: [
-          const Icon(Icons.check_circle_rounded, color: Colors.cyanAccent, size: 24),
+          const Icon(
+            Icons.check_circle_rounded,
+            color: Colors.cyanAccent,
+            size: 24,
+          ),
           const SizedBox(width: 15),
           Expanded(
             child: Text(
               feature,
-              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ],
@@ -252,7 +253,11 @@ class _TechBadge extends StatelessWidget {
       ),
       child: Text(
         tech,
-        style: const TextStyle(color: Color(0xFF818CF8), fontSize: 14, fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          color: Color(0xFF818CF8),
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -297,7 +302,12 @@ class _DetailActionButtonState extends State<_DetailActionButton> {
             ),
             child: Text(
               widget.label,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900, letterSpacing: 2),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 2,
+              ),
             ),
           ),
         ),

@@ -41,7 +41,7 @@ class ExperienceSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 80),
-              
+
               const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,19 +54,22 @@ class ExperienceSection extends StatelessWidget {
                           title: 'Mobile App Developer',
                           subtitle: 'SAF INVESTMENT GROUP',
                           date: 'Dec 2023 - Present',
-                          description: 'Developing high-end fintech solutions. Expertise in Clean Architecture, state management (Bloc/Provider), and custom UI designs for complex business needs.',
+                          description:
+                              'Developing high-end fintech solutions. Expertise in Clean Architecture, state management (Bloc/Provider), and custom UI designs for complex business needs.',
                         ),
                         _TimelineItemData(
                           title: 'Flutter Developer',
                           subtitle: 'ZagSystem / Huma-valve / Elevate',
                           date: 'Nov 2021 - Nov 2023',
-                          description: 'Freelance & Part-time development for multiple platforms. Focused on performance optimization, RESTful API integration, and Firebase backend services.',
+                          description:
+                              'Freelance & Part-time development for multiple platforms. Focused on performance optimization, RESTful API integration, and Firebase backend services.',
                         ),
                         _TimelineItemData(
                           title: 'Programming Instructor',
                           subtitle: 'EraaSoft / Kian / MEC / Bright Brain',
                           date: '2022 - Present',
-                          description: 'Mentoring 500+ students in Flutter and Dart development. Guided teams to winning national programming competitions.',
+                          description:
+                              'Mentoring 500+ students in Flutter and Dart development. Guided teams to winning national programming competitions.',
                         ),
                       ],
                     ),
@@ -81,13 +84,15 @@ class ExperienceSection extends StatelessWidget {
                           title: 'Bachelor of Computer Science',
                           subtitle: 'Zagazig University, Egypt',
                           date: 'Class of 2023',
-                          description: 'CS Department | Grade: Very Good. Specialized in software engineering, algorithms, and modular design patterns.',
+                          description:
+                              'CS Department | Grade: Very Good. Specialized in software engineering, algorithms, and modular design patterns.',
                         ),
                         _TimelineItemData(
                           title: 'Global & Regional Awards',
                           subtitle: 'First & Second Places',
                           date: '2022 - 2023',
-                          description: '• Golden Medal – Climathon EUI 2022\n• 1st Place – Google Solution Challenge AOU 2023\n• 2nd Place – Dell Competition (Africa/MENA) 2023\n• 2nd Place – DevFest 2022',
+                          description:
+                              '• Golden Medal – Climathon EUI 2022\n• 1st Place – Google Solution Challenge AOU 2023\n• 2nd Place – Dell Competition (Africa/MENA) 2023\n• 2nd Place – DevFest 2022',
                         ),
                       ],
                     ),
@@ -133,7 +138,7 @@ class _TimelineColumn extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 40),
-        ...items.map((item) => _TimelineItem(data: item)).toList(),
+        ...items.map((item) => _TimelineItem(data: item)),
       ],
     );
   }
@@ -192,12 +197,7 @@ class _TimelineItemState extends State<_TimelineItem> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    width: 2,
-                    color: Colors.white10,
-                  ),
-                ),
+                Expanded(child: Container(width: 2, color: Colors.white10)),
               ],
             ),
             const SizedBox(width: 25),
@@ -208,14 +208,14 @@ class _TimelineItemState extends State<_TimelineItem> {
                   duration: const Duration(milliseconds: 300),
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: _isHovered 
-                      ? Colors.cyanAccent.withOpacity(0.05) 
-                      : Colors.white.withOpacity(0.02),
+                    color: _isHovered
+                        ? Colors.cyanAccent.withOpacity(0.05)
+                        : Colors.white.withOpacity(0.02),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: _isHovered 
-                        ? Colors.cyanAccent.withOpacity(0.5) 
-                        : Colors.white.withOpacity(0.05),
+                      color: _isHovered
+                          ? Colors.cyanAccent.withOpacity(0.5)
+                          : Colors.white.withOpacity(0.05),
                       width: 1.5,
                     ),
                   ),
