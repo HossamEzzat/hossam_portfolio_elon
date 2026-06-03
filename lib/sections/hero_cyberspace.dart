@@ -160,7 +160,7 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
     );
   }
 
-  Widget _buildSocialIcon(IconData icon, String tooltip, String url) {
+  Widget _buildSocialIcon(dynamic icon, String tooltip, String url) {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: const Duration(seconds: 5),
@@ -192,7 +192,7 @@ class _HeroCyberSpaceState extends State<HeroCyberSpace>
                       )
                     ],
                   ),
-                  child: Icon(icon, color: Colors.cyanAccent, size: 28),
+                  child: FaIcon(icon, color: Colors.cyanAccent, size: 28),
                 ),
               ),
             ),
